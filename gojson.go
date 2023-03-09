@@ -327,9 +327,9 @@ func (t Result) Get(path string) Result {
 	return r
 }
 
-func (t Result) Set(path string, value interface{}) Result {
+func (t Result) Set(path string, value interface{}) {
 	json, _ := SetOptions(t.Raw, path, value, nil)
-	return Parse(json)
+	t = Parse(json)
 }
 
 type arrayOrMapResult struct {
